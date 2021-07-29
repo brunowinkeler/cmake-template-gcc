@@ -1,2 +1,3 @@
-# cmake-template-gcc
-CMake template using GCC/MinGW, with many levels of abstraction
+# CMake Template GCC
+
+CMake template using GCC/MinGW, with many levels of abstraction.
