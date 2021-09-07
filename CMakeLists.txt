@@ -3,28 +3,31 @@ cmake_minimum_required(VERSION 3.10)
 
 # Project Name
 set(PROJ_NAME cmake-template-gcc)
-set(EXEC_NAME ExecCmakeTemplate)
 
+# Creation of project with call of toolchain
 project(${PROJ_NAME})
-
-set(PROJECT_SOURCES         ${CMAKE_SOURCE_DIR}/src)
-set(PROJECT_INCLUDES        ${CMAKE_SOURCE_DIR}/include)
-
-include_directories(${PROJECT_INCLUDES})
 
 # Set CMAKE_INSTALL_PREFIX to define install directory
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/install" CACHE PATH "Default Install Path" FORCE)
 
-# Collect sources into the variable
-file(GLOB SANDBOX_SOURCES
-        "src/*.c"
-        "src/*.cpp"
-)
+# Set "Debug" as default build type
+if (CMAKE_BUILD_TYPE STREQUAL "")
+    set(CMAKE_BUILD_TYPE "Debug")
+endif()
 
-add_executable(${EXEC_NAME} ${SANDBOX_SOURCES})
+# Set of Local Variables for location
+set(PROJECT_SOURCES         ${CMAKE_SOURCE_DIR}/src)
+set(PROJECT_TESTS           ${CMAKE_SOURCE_DIR}/tests)
 
-# Define installation folders
+# Define the folder of Includes, libraries and Runtime Files. (.h, .hpp, .ilk, .exe, .dll, .lib, .exp etc.)
+set(PROJECT_INCLUDES    "${CMAKE_INSTALL_PREFIX}/include")
+set(PROJECT_LIBS        "${CMAKE_INSTALL_PREFIX}/lib")
 set(PROJECT_BINARIES    "${CMAKE_INSTALL_PREFIX}/bin")
-install(TARGETS ${EXEC_NAME} 
-        RUNTIME DESTINATION ${PROJECT_BINARIES}
-)
+
+# Set Lib's name and type
+set(LIBRARY_NAME   tests)
+set(LIBRARY_TYPE   SHARED)
+
+# Add project's modules
+include_directories(${PROJECT_SOURCES})
+add_subdirectory(src)
