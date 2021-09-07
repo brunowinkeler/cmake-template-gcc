@@ -1,10 +1,10 @@
-#include "logger/logger.h"
-
 #include "tests.h"
+#include "logger/logger.h"
 
 #include <pthread.h>
 #include <errno.h>
 #include <unistd.h>
+#include <time.h>
 
 static pthread_mutex_t mutex_sleep = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t cond_var_sleep = PTHREAD_COND_INITIALIZER;

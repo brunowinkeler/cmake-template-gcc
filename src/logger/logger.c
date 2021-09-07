@@ -11,6 +11,7 @@
 #include "logger/logger.h"
 
 #include <string.h>
+#include <time.h>
 
 /**************************************************************************************************
  * Typedefs and Variable Definitions

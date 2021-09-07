@@ -1,6 +1,7 @@
+#include "tests.h"
 #include "logger/logger.h"
 
-#include "tests.h"
+#include <stdlib.h>
 
 static unsigned int string_to_unsigned_int(char *word);
 static unsigned int hex_string_to_unsigned_int(char *word);

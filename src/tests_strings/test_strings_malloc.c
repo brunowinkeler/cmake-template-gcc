@@ -1,6 +1,5 @@
-#include "logger/logger.h"
-
 #include "tests.h"
+#include "logger/logger.h"
 
 #include <stdio.h>
 #include <stdlib.h>

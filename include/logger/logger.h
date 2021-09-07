@@ -12,8 +12,6 @@
  **************************************************************************************************/
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 // Habilitar LOGGER
 #define ENABLE_LOGGER_DEBUG    1
