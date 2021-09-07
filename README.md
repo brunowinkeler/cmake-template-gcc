@@ -14,7 +14,6 @@ CMake template using GCC/MinGW, with many levels of abstraction.
     * `cmake ..`
     * `make`
     * `make install`
-5. Run exec file: `./ExecCmakeTemplate`
 
 ## Building on Windows
 
@@ -27,4 +26,3 @@ CMake template using GCC/MinGW, with many levels of abstraction.
     * `cmake .. -G "MinGW Makefiles"`
     * `mingw32-make.exe`
     * `mingw32-make.exe install`
-5. Run exec file: `./ExecCmakeTemplate`
