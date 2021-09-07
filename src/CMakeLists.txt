@@ -1,13 +1,5 @@
-#########################################################
-
-# Set of Local Variables for parson location
-set(LOGGER_NAME               logger)
-set(LOGGER_DIR                ${PROJECT_SOURCES}/${LOGGER_NAME})
-
-# Include the directories that are the reference
-include_directories(${LOGGER_DIR}/include)
-
-#########################################################
+# Include headers to be accessible by sources
+include_directories(${PROJECT_INCLUDES})
 
 # Collect sources and headers into the variables
 file(GLOB_RECURSE GERAL_HEADERS 
@@ -22,8 +14,6 @@ file(GLOB_RECURSE GERAL_SOURCES
         "*.cxx"
         )
 
-message("GERAL_SOURCES: ${GERAL_SOURCES}")
-
 #########################################################
 
 set(GERAL_NAME                ${LIBRARY_NAME})
@@ -35,9 +25,9 @@ add_library(${GERAL_NAME} ${GERAL_TYPE} ${GERAL_SOURCES} ${GERAL_HEADERS})
 
 # Define installation folders
 install(TARGETS ${GERAL_NAME} 
-        RUNTIME DESTINATION ${PROJECT_BINARIES}
-        LIBRARY DESTINATION ${PROJECT_LIBS}
-        ARCHIVE DESTINATION ${PROJECT_LIBS})
+        RUNTIME DESTINATION ${INSTALL_PROJECT_BINARIES}
+        LIBRARY DESTINATION ${INSTALL_PROJECT_LIBS}
+        ARCHIVE DESTINATION ${INSTALL_PROJECT_LIBS})
 
-install(DIRECTORY ${LOGGER_DIR}/include/ 
-        DESTINATION ${PROJECT_INCLUDES})
+install(DIRECTORY ${PROJECT_INCLUDES}/
+        DESTINATION ${INSTALL_PROJECT_INCLUDES})
